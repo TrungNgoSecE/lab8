@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LAB 8</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="clickButton" 
+      >Click Me</button>
+
+      <div>Hover over me</div>
+
+    <input type="text" placeholder="Focus on me">
+
+    <ul id="parent-list">
+      <li>coffee</li>
+      <li>soda</li>
+      <li>tea</li>
+      <li>energy drink</li>
+      <li>milk</li>
+    </ul>
+
+    <script>
+        const button = document.querySelector('.clickButton');
+
+      button.addEventListener('click', function(){
+        button.innerHTML = 'button clicked!';
+        console.log("button clicked!");
+      });
+
+      const divE = document.querySelector('div')
+      divE.addEventListener('mouseenter', function(){
+        divE.style.backgroundColor = 'red'  ;
+      })
+      divE.addEventListener('mouseleave', function (){
+        divE.style.backgroundColor = "white";
+      })
+
+      let input = document.querySelector('input');
+      input.addEventListener('focus', function(){
+        console.log('Input field is focused')
+      });
+
+      input.addEventListener('blur', function(){
+        console.log('Input field lost focus');
+      });
+
+      document.getElementById('parent-list').addEventListener('click', function(e){
+        if (e.target && e.target.nodeName =="LI"){
+          console.log('list item', e.target.id, "was clicked")
+
+          document.getElementById('parent-list').style.backgroundColor = 'yellow';
+        }
+      })
+    </script>
+  </body>
+</html>
